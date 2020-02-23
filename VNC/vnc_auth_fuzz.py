@@ -28,7 +28,7 @@ def pre_send(target, fuzz_data_logger, session, sock):
 def post_send(target, fuzz_data_logger, session, sock):
 	#time.sleep(2)
 	slen = sock.recv(4)
-	if len(slen) is 0:
+	if not slen:
 		return
 	status = struct.unpack(">I", slen)[0]
 	if status:
